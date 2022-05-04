@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
 
+import React from 'react';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
+
+import MasterLayout from './layouts/admin/MasterLayout';
+import Dashboard from './components/admin/Dashboard';
+import Profile from './components/admin/Profile';
+
+import Home from './components/frontend/Home';
 function App() {
-  return (
+
+
+
+ 
+  return ( 
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+
+<BrowserRouter>
+
+<Switch>
+
+<Route  exact path="/" component={Home}/>
+
+<Route path="/admin" name="Admin" render={(props)  => <MasterLayout {...props}/>}  />
+{/*
+<Route exact path="/admin" component={MasterLayout}/>
+
+<Route exact path="/admin/dashboard" component={Dashboard}/>
+
+<Route exact path="/admin/profile" component={Profile}/>
+*/}</Switch>
+
+</BrowserRouter>
+   
     </div>
   );
 }
