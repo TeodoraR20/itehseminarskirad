@@ -7,6 +7,11 @@ import Dashboard from './components/admin/Dashboard';
 import Profile from './components/admin/Profile';
 
 import Home from './components/frontend/Home';
+import Login from './components/frontend/auth/Login';
+
+import Register from './components/frontend/auth/Register';
+
+
 function App() {
 
 
@@ -20,7 +25,11 @@ function App() {
 
 <Switch>
 
-<Route  exact path="/" component={Home}/>
+<Route exact  path="/" component={Home}/>
+
+<Route exact  path="/login" component={Login }/>
+
+<Route exact path="/register" component={Register }/>
 
 <Route path="/admin" name="Admin" render={(props)  => <MasterLayout {...props}/>}  />
 {/*
