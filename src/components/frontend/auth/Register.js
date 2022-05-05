@@ -7,7 +7,7 @@ import Navbar from '../../../layouts/frontend/Navbar';
 
 function Register() {
 
-  const history = useHistory();
+  
 
   const[registerInput, setRegister] = useState({
 name: '',
@@ -20,7 +20,7 @@ error_list: [],
 
 const handleInput = (e) =>{
 
-e.presist();
+e.persist();
 setRegister({...registerInput, [e.target.name]: e.target.value});
 
 }
@@ -50,7 +50,7 @@ if(res.data.status === 200)
 localStorage.setItem('auth_token',res.data.token);
 localStorage.setItem('auth_name',res.data.username);
 swal("Succes",res.data.message,"success");
-history.push('/');
+
 
 } else
 {
