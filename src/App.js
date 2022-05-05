@@ -27,9 +27,9 @@ function App() {
 
 <Route exact  path="/" component={Home}/>
 
-<Route exact  path="/login" component={Login }/>
+<Route   path="/login" component={Login }/>
 
-<Route exact path="/register" component={Register }/>
+<Route  path="/register" component={Register }/>
 
 <Route path="/admin" name="Admin" render={(props)  => <MasterLayout {...props}/>}  />
 {/*
