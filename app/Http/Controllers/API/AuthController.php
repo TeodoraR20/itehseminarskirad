@@ -108,5 +108,18 @@ else{
 
 }
 
+public function logout()
+{
+
+    auth()->user()->tokens()->delete();
+    return response()-json([
+
+'status'=>200,
+'message'=>'Logged out successfully',
+
+    ]);
+
+}
+
 
 }
