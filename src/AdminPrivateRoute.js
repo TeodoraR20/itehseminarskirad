@@ -43,6 +43,30 @@ return Promise.reject(err);
 
 );
 
+axios.interceptors.response.use(function(response){
+
+return response;
+
+} , function(error){
+
+if(error.response.status === 403) //Access denied.
+{
+swal("Forbidden",error.response.data.message,"warning");
+history.push('/403');
+}
+
+else if(error.response.status === 404) //Page not found
+{
+swal("404 error","Url/Page not found.",error.response.data.message,"warning");
+history.push('/404');
+}
+
+return Promise.reject(error);
+}
+
+);
+
+
 if(loading)
 {
     return <h1>Loading...</h1>
