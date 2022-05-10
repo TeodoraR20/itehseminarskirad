@@ -1,10 +1,15 @@
 import axios from 'axios';
-import React from 'react'
+import React, {useState} from 'react'
 import {Link} from 'react-router-dom';
+import swal from 'sweetalert';
+import {withRouter} from 'react-router-dom';
+function Navbar(props) {
 
-function Navbar() {
+  const {history} = props;
 
 const logoutSubmit = (e) => {
+
+
 
 e.preventDefault();
 axios.post('/api/logout').then(res=>{
@@ -13,6 +18,9 @@ axios.post('/api/logout').then(res=>{
   {
     localStorage.removeItem('auth_token',res.data.token);
     localStorage.removeItem('auth_name',res.data.username);
+
+    swal("Success",res.data.message,"success");
+    history.push('/');
 
   }
 
@@ -81,4 +89,4 @@ AuthButtons = (
   )
 }
 
-export default Navbar
+export default withRouter(Navbar)
