@@ -92,7 +92,18 @@ else{
   }
 else{
 
-    $token = $user->createToken($user->email.'_Token')->plainTextToken;
+
+if($user->role_as == 1) //1-admin
+{
+  $token =  $user->createToken('_AdminToken',['server:admin'])->plainTextToken;
+}
+else{
+
+    $token = $user->createToken($user->email.'_Token',[''])->plainTextToken;
+
+}
+
+    
 
     return response()->json([
     
