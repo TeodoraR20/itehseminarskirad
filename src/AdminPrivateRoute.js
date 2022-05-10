@@ -1,10 +1,14 @@
 import React from 'react'
-import {Route, Redirect} from 'react-router-dom'
+import {Route, Redirect, withRouter} from 'react-router-dom'
 import MasterLayout from './layouts/admin/MasterLayout';
 import {useEffect, useState} from 'react'
 import axios from 'axios';
+import swal from 'sweetalert';
 
-function AdminPrivateRoute({...rest}) {
+function AdminPrivateRoute({...rest}, props) {
+
+    const {history} = props;
+
 const [Authenticated, setAuthenticated] = useState(false);
 const [loading, setLoading] = useState(true);
 
@@ -24,6 +28,20 @@ setLoading(false);
     setAuthenticated(false);
   }
 }, []);
+
+
+axios.interceptors.response.use(undefined,function axiosRetryInterceptor(err){
+
+if(err.response.status === 401)
+{
+swal("Unauthorized",err.response.data.message,"warning");
+history.push('/');
+}
+return Promise.reject(err);
+
+}
+
+);
 
 if(loading)
 {
@@ -56,6 +74,6 @@ Authenticated ?
 
 
 
-export default AdminPrivateRoute;
+export default withRouter(AdminPrivateRoute);
 
 
