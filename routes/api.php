@@ -31,6 +31,8 @@ return response()->json(['message'=>'You are in.','status'=>200],200);
 
  //Route::post('/admin/category',[CategoryController::class,'store']);
 
+Route::get('view-category',[CategoryController::class,'view']);
+
  Route::post('store-category',[CategoryController::class,'store']);
 
 });

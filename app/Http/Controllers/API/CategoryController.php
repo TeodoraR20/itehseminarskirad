@@ -11,6 +11,20 @@ class CategoryController extends Controller
 {
     //
 
+
+public function view()
+{
+
+$category = Category::all();
+return response()->json([
+
+    'status'=>200,
+    'category'=>$category,
+
+]);
+
+}
+
 public function store(Request $request)
 {
 
