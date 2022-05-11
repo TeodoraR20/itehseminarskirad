@@ -27,6 +27,11 @@ const Sidebar = () => {
                 Add Category2
             </Link>
 
+            <Link className="nav-link" to="/admin/view-category">
+                <div className="sb-nav-link-icon"><i className="fas fa-tachometer-alt"></i></div>
+                View category
+            </Link>
+
             <Link className="nav-link collapsed" to="#" data-bs-toggle="collapse" data-bs-target="#collapseProduct" aria-expanded="false" aria-controls="collapseLayouts">
                 <div className="sb-nav-link-icon"><i className="fas fa-columns"></i></div>
                 Products
