@@ -60,6 +60,21 @@ setCategory({...categoryInput,error_list:res.data.errors});
 
 }
 
+
+var display_errors = [];
+
+
+if(categoryInput.error_list)
+{
+display_errors = [
+
+categoryInput.error_list.slug,
+
+categoryInput.error_list.name,
+categoryInput.error_list.meta_title,
+];
+
+}
   return (
 
 
@@ -67,6 +82,14 @@ setCategory({...categoryInput,error_list:res.data.errors});
     <div className="cotainer fluid px-4">
 
 <h1 className="mt-4">Category</h1>
+
+{
+
+display_errors.map((item)=>{
+ return (<p className="mb-1" key={item}>{item}</p>)
+})
+
+}
 
 
 
