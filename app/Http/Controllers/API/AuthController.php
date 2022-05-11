@@ -95,10 +95,13 @@ else{
 
 if($user->role_as == 1) //1-admin
 {
+
+    $role = 'admin';
+
   $token =  $user->createToken('_AdminToken',['server:admin'])->plainTextToken;
 }
 else{
-
+    $role = '';
     $token = $user->createToken($user->email.'_Token',[''])->plainTextToken;
 
 }
@@ -111,6 +114,7 @@ else{
         'username' => $user->name,
         'token'=>$token,
         'message' =>'Logged in  successfully',
+        'role'=>$role,
         
         ]);
 

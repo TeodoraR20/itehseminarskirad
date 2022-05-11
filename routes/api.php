@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\StudentController;
+use App\Http\Controllers\API\CategoryController;
 use App\Http\Controllers\API\AuthController;
 
 /*
@@ -26,10 +26,13 @@ Route::middleware(['auth:sanctum','isAPIAdmin'])->group(function(){
 
 return response()->json(['message'=>'You are in.','status'=>200],200);
 
-
-
     });
- 
+ //Category
+
+ //Route::post('/admin/category',[CategoryController::class,'store']);
+
+ Route::post('store-category',[CategoryController::class,'store']);
+
 });
 
 
