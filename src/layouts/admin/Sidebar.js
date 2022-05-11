@@ -17,10 +17,28 @@ const Sidebar = () => {
                 Profile
             </Link>
 
-            <Link className="nav-link" to="/admin/category">
+            <Link className="nav-link" to="/admin/add-category">
                 <div className="sb-nav-link-icon"><i className="fas fa-tachometer-alt"></i></div>
-                Category
+                Add Category
             </Link>
+
+            <Link className="nav-link" to="/admin/store-category">
+                <div className="sb-nav-link-icon"><i className="fas fa-tachometer-alt"></i></div>
+                Add Category2
+            </Link>
+
+            <Link className="nav-link collapsed" to="#" data-bs-toggle="collapse" data-bs-target="#collapseProduct" aria-expanded="false" aria-controls="collapseLayouts">
+                <div className="sb-nav-link-icon"><i className="fas fa-columns"></i></div>
+                Products
+                <div classNameName="sb-sidenav-collapse-arrow"><i classNameName="fas fa-angle-down"></i></div>
+            </Link>
+            <div className="collapse" id="collapseProduct" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                <nav classNameName="sb-sidenav-menu-nested nav">
+                    <Link classNameName="nav-link" to="/admin/add-product">Add product</Link>
+                    <Link classNameName="nav-link" to="/admin/view-product">View product</Link>
+                </nav>
+            </div>
+
             <div className="sb-sidenav-menu-heading">Interface</div>
             <Link className="nav-link collapsed" to="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                 <div className="sb-nav-link-icon"><i className="fas fa-columns"></i></div>

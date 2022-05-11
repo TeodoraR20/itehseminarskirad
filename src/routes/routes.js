@@ -1,7 +1,9 @@
 import Dashboard from '../components/admin/Dashboard';
 import Profile from '../components/admin/Profile';
 import Category from '../components/admin/Category';
+import Category2 from '../components/admin/Category2';
 
+import AddProduct from '../components/admin/product/AddProduct';
 import React from 'react';
 
 const routes  = [
@@ -9,11 +11,12 @@ const routes  = [
 
 {path: '/admin/dashboard',exact: true,  name: 'Dashboard' ,component: Dashboard},
 
-{path: '/admin/category',exact: true,  name: 'Dashboard' ,component: Category},
+{path: '/admin/category',exact: true,  name: 'Category' ,component: Category},
+{path: '/admin/store-category',exact: true,  name: 'Category2' ,component: Category2},
 
 {path: '/admin/profile',exact: true, name: 'Profile', component: Profile },
 
-
+{path: '/admin/add-product',exact: true, name: 'AddProduct', component: AddProduct },
 ];
 
 
