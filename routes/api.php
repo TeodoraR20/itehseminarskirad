@@ -39,6 +39,8 @@ Route::get('edit-category/{id}',[CategoryController::class,'edit']);
 
 Route::put('update-category/{id}',[CategoryController::class,'update']);
 
+
+Route::delete('delete-category/{id}',[CategoryController::class,'destroy']);
 });
 
 

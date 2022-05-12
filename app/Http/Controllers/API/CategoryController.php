@@ -153,4 +153,34 @@ else
 
 }
 
+public function destroy($id)
+{
+
+$category = Category::find($id);
+
+if($category)
+{
+
+    $category->delete();
+    return response()->json([
+    
+        'status'=>200,
+        'message'=>'Category deleted successfuly',
+        
+        ]);
+
+}
+
+else{
+
+    return response()->json([
+    
+        'status'=>404,
+        'message'=>'No category id found.',
+        
+        ]);
+
+}
+}
+
 }
