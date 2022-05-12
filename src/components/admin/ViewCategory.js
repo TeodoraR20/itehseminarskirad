@@ -51,7 +51,7 @@ return(
 <td>
 
 
-    <Link to={`edit-category/${item.id}`} className="btn btn-success btn-sm">Edit</Link>
+    <Link to={`edit-category/${item.id}`} className="btn btn-success btn-sm" >Edit</Link>
 </td>
 
 <td>
