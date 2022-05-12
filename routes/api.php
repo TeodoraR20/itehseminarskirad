@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\CategoryController;
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,16 @@ Route::put('update-category/{id}',[CategoryController::class,'update']);
 
 
 Route::delete('delete-category/{id}',[CategoryController::class,'destroy']);
+
+//vrati sve kategorije proizvoda
+
+Route::get('all-category',[CategoryController::class,'allcategory']);
+//product
+
+Route::post('store-product',[ProductController::class,'store']);
+
+
+
 });
 
 
