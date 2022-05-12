@@ -19,7 +19,9 @@ const routes  = [
 
 {path: '/admin/profile',exact: true, name: 'Profile', component: Profile },
 
-{path: '/admin/add-product',exact: true, name: 'AddProduct', component: AddProduct },
+{path: '/admin/store-product',exact: true, name: 'AddProduct', component: AddProduct },
+
+
 ];
 
 
