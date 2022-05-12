@@ -35,6 +35,10 @@ Route::get('view-category',[CategoryController::class,'view']);
 
  Route::post('store-category',[CategoryController::class,'store']);
 
+Route::get('edit-category/{id}',[CategoryController::class,'edit']);
+
+Route::put('update-category/{id}',[CategoryController::class,'update']);
+
 });
 
 
