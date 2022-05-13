@@ -10,8 +10,11 @@ const [category, setCategory] = useState([]);
 
 useEffect(() => {
   
+    let isMountared = true;
 
 axios.get(`/api/getCategory`).then(res=>{
+    if(isMountared)
+    {
 
 if(res.data.status === 200)
 {
@@ -22,7 +25,15 @@ setLoading(false);
 
 }
 
+    }
+
 });
+
+return () => {
+
+isMountared = false;
+
+}
 
 } );
 
