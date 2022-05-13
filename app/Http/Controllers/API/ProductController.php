@@ -207,9 +207,9 @@ $product->image = 'uploads/product/'.$filename;
 }
 
 
-$product->featured = $request->input('featured') == true ? '1' : '0';
-$product->featured = $request->input('popular') == true ? '1' : '0';
-$product->featured = $request->input('status') == true ? '1' : '0';
+$product->featured = $request->input('featured') ;
+$product->featured = $request->input('popular') ;
+$product->featured = $request->input('status') ;
 
 
 $product->update();
