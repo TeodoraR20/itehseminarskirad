@@ -5,6 +5,8 @@ import Category2 from '../components/admin/Category2';
 import ViewCategory from '../components/admin/ViewCategory';
 import EditCategory from '../components/admin/EditCategory';
 import AddProduct from '../components/admin/product/AddProduct';
+import ViewProduct from '../components/admin/product/ViewProduct';
+
 import React from 'react';
 
 const routes  = [
@@ -20,7 +22,7 @@ const routes  = [
 {path: '/admin/profile',exact: true, name: 'Profile', component: Profile },
 
 {path: '/admin/store-product',exact: true, name: 'AddProduct', component: AddProduct },
-
+{path: '/admin/view-product',exact: true, name: 'ViewProduct', component: ViewProduct },
 
 ];
 
