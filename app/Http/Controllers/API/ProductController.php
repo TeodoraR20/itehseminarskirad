@@ -102,11 +102,139 @@ return response()->json([
 
         }
 
-$product = new Product;
+
 
 
 
     }
+
+public function edit($id){
+
+$product = Product::find($id);
+if($product)
+{
+
+    return response()->json([
+        'status' => 200,
+        'product' => $product,
+        
+        ]);
+
+}
+
+else{
+
+return response()->json([
+'status' => 404,
+'message' => "No product found",
+
+]);
+
+}
+
+}
+
+public function update(Request $request, $id)
+
+{
+
+    $validator = Validator::make($request->all(),[
+
+        'category_id' => 'required|max:191',
+        'slug' => 'required|max:191',
+        'name' => 'required|max:191',
+        'meta_title' => 'required|max:191',
+        'brand' => 'required|max:20',
+        'selling_price' => 'required|max:20',
+        'original_price' => 'required|max:20',
+        'quantity' => 'required|max:4',
+        
+
+      ]);
+
+      if($validator->fails())
+      {
+
+return response()->json([
+
+'status' => 422,
+'errors' => $validator->messages(),
+
+]);
+
+      }
+
+      else 
+      {
+
+$product =  Product::find($id);
+
+if($product)
+{
+
+$product->category_id = $request->input('category_id');
+$product->slug = $request->input('slug');
+$product->name = $request->input('name');
+$product->description = $request->input('description');
+
+$product->meta_title = $request->input('meta_title');
+$product->meta_keyword = $request->input('meta_keyword');
+$product->meta_description = $request->input('meta_description');
+
+$product->brand = $request->input('brand');
+$product->selling_price = $request->input('selling_price');
+$product->original_price = $request->input('original_price');
+$product->quantity = $request->input('quantity');
+
+if($request->hasfile('image'))
+{
+
+    $path = $product->image;
+//brisanje stare fotografije
+    if(File::exists($path))
+    {
+File::delete($path);
+    }
+
+    //postavljanje nove
+$file = $request->file('image');
+$extension = $file->getClientOriginalExtension();
+$filename = time() .' . '.$extension;
+$file->move('uploads/product/', $filename);
+$product->image = 'uploads/product/'.$filename;
+
+
+}
+
+
+$product->featured = $request->input('featured') == true ? '1' : '0';
+$product->featured = $request->input('popular') == true ? '1' : '0';
+$product->featured = $request->input('status') == true ? '1' : '0';
+
+
+$product->update();
+
+return response()->json([
+
+  'status' => 200,
+  'message' => 'Product updated successfuly.',
+  
+  ]);
+
+}
+else{
+
+    return response()->json([
+
+        'status' => 404,
+        'message' => 'Product not found',
+        
+        ]);
+
+}
+      }
+
+}
 
     
 }
