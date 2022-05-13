@@ -1,15 +1,12 @@
 import React from 'react'
 import Navbar from '../../layouts/frontend/Navbar';
 
-function Home() {
+function About() {
   return (
     <div>
-
-
-<h1>Pocetna stranica</h1>
-
-    </div>
+        
+        About</div>
   )
 }
 
-export default Home
+export default About

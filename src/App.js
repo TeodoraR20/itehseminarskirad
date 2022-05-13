@@ -7,7 +7,10 @@ import Dashboard from './components/admin/Dashboard';
 import Profile from './components/admin/Profile';
 
 import Home from './components/frontend/Home';
+import About from './components/frontend/About';
+import Contact from './components/frontend/Contact';
 import Login from './components/frontend/auth/Login';
+import PublicRoute from   './PublicRoute';
 
 import Register from './components/frontend/auth/Register';
 import {Redirect} from 'react-router-dom';
@@ -17,6 +20,8 @@ import Page404 from './components/errors/Page404';
 
 import axios from 'axios';
 import AdminPrivateRoute from './AdminPrivateRoute';
+
+
 
 axios.defaults.baseURL = "http://localhost:8000/";
 axios.defaults.headers.post['Accept'] = 'application/json';
@@ -44,7 +49,13 @@ function App() {
 
 <Switch>
 
-<Route exact  path="/" component={Home}/>
+{/*<Route exact  path="/" component={Home}/>
+<Route exact  path="/about" component={About}/>
+  <Route exact  path="/contact" component={Contact}/> */}
+
+<AdminPrivateRoute path="/admin" name="Admin"/>
+
+<PublicRoute path="/" name="Home"/>
 
 <Route   path="/403" component={Page403}/>
 <Route  path="/404" component={Page404}/>
@@ -65,7 +76,7 @@ function App() {
 
 {/*<Route path="/admin" name="Admin" render={(props)  => <MasterLayout {...props}/>}  />*/}
 
-<AdminPrivateRoute path="/admin" name="Admin"/>
+
 
 {/*
 <Route exact path="/admin" component={MasterLayout}/>
