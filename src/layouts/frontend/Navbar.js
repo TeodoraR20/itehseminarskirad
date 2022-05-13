@@ -81,7 +81,7 @@ AuthButtons = (
           <Link className="nav-link active" aria-current="page" to="/contact">Contact</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="#">Collections</Link>
+          <Link className="nav-link" to="/collections">Collections</Link>
         </li>
 
         

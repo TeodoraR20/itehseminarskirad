@@ -3,7 +3,7 @@ import About from '../components/frontend/About';
 import Contact from '../components/frontend/Contact';
 import Login from '../components/frontend/auth/Login';
 import Register from '../components/frontend/auth/Register';
-import Collections from '../components/frontend/collections/ViewCategory';
+import ViewCategory from '../components/frontend/collections/ViewCategory';
 
 const Publicrouteslist  = [
     {path: '/' ,exact: true,  name: 'Home', component: Home},
@@ -14,7 +14,7 @@ const Publicrouteslist  = [
 
     {path: '/login',exact: true,  name: 'Login' ,component: Login},
     {path: '/register',exact: true,  name: 'Register' ,component: Register},
-    {path: '/collections',exact: true,  name: 'Collections' ,component: Collections},
+    {path: '/collections',exact: true,  name: 'ViewCategory' ,component: ViewCategory},
 ];    
 
 export default Publicrouteslist;
