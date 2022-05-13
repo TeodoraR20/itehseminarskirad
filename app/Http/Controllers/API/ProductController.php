@@ -11,6 +11,21 @@ class ProductController extends Controller
 {
     //
 
+public function view()
+{
+
+$products = Product::all();
+return response()->json([
+
+'status'=>200,
+'products'=>$products
+
+]);
+
+
+}
+
+
     public function store(Request $request)
     {
     
