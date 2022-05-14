@@ -78,6 +78,52 @@ const handleIncrement = () => {
     
     }
 
+const submitAddtocart = (e) => {
+
+e.preventDefault();
+
+const data = {
+
+product_id: product.id,
+product_quantity: quantity,
+
+
+}
+
+axios.post(`/api/add-to-cart`,data).then(res=> {
+
+if(res.data.status === 201)
+{
+
+swal("Success", res.data.message,"success");
+
+}
+
+else if(res.data.status === 409)
+{
+    swal("Warning", res.data.message,"warning");
+
+}
+
+else if(res.data.status === 401)
+{
+
+swal("Error",res.data.message,"error");
+
+}
+
+else if(res.data.status === 404)
+{
+
+swal("Warning",res.data.message,"warning");
+
+}
+
+});
+
+
+}
+
 if(loading)
 {
 
@@ -117,7 +163,7 @@ else
 
 <div className="col-md-3 mt-3">
 
-<button type="button" className="btn btn-primary w-10">Add to cart</button>
+<button type="button" onClick={submitAddtocart} className="btn btn-primary w-10">Add to cart</button>
 
 </div>
 
