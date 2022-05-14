@@ -6,6 +6,7 @@ use App\Http\Controllers\API\CategoryController;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\ProductController;
 use App\Http\Controllers\API\FrontendController;
+use App\Http\Controllers\API\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,10 @@ Route::get('getCategory',[FrontendController::class,'category']);
 Route::get('fetchproduct/{slug}',[FrontendController::class,'product']);
 
 Route::get('viewproductdetail/{category_slug}/{product_slug}',[FrontendController::class, 'viewproduct']);
+
+Route::post('add-to-cart',[CartController::class,'addtocart']);
+
+
 
 
 
