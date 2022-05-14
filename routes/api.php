@@ -27,6 +27,9 @@ Route::get('getCategory',[FrontendController::class,'category']);
 
 Route::get('fetchproduct/{slug}',[FrontendController::class,'product']);
 
+Route::get('viewproductdetail/{category_slug}/{product_slug}',[FrontendController::class, 'viewproduct']);
+
+
 
 Route::middleware(['auth:sanctum','isAPIAdmin'])->group(function(){
 
